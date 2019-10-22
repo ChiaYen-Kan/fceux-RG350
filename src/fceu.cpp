@@ -74,6 +74,8 @@ extern void RefreshThrottleFPS();
 #include "drivers/win/ramwatch.h"
 #include "drivers/win/memwatch.h"
 #include "drivers/win/tracer.h"
+#elif defined(DINGUX)
+#include "drivers/dingux-sdl/dingoo.h"
 #else
 #ifdef __QT_DRIVER__
 #include "drivers/Qt/sdl.h"
@@ -772,7 +774,7 @@ void FCEUI_Emulate(uint8 **pXBuf, int32 **SoundBuf, int32 *SoundBufSize, int ski
 	extern int KillFCEUXonFrame;
 	if (KillFCEUXonFrame && (FCEUMOV_GetFrame() >= KillFCEUXonFrame))
 		DoFCEUExit();
-#else
+#elif !defined(DINGUX)
 		extern int KillFCEUXonFrame;
 	if (KillFCEUXonFrame && (FCEUMOV_GetFrame() >= KillFCEUXonFrame))
 		exit(0);
