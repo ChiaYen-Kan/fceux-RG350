@@ -175,13 +175,15 @@ BOARDS_OBJS = \
 	$(SRC)boards/vrc6.o \
 	$(SRC)boards/vrc7.o \
 	$(SRC)boards/vrc7p.o \
-	$(SRC)boards/yoko.o
+	$(SRC)boards/yoko.o \
+	$(SRC)boards/fns.o
 
 INPUT_OBJS = $(SRC)input/arkanoid.o $(SRC)input/bworld.o $(SRC)input/cursor.o \
 	$(SRC)input/fkb.o $(SRC)input/ftrainer.o $(SRC)input/hypershot.o $(SRC)input/mahjong.o \
 	$(SRC)input/mouse.o $(SRC)input/oekakids.o $(SRC)input/pec586kb.o \
 	$(SRC)input/powerpad.o $(SRC)input/quiz.o $(SRC)input/shadow.o $(SRC)input/snesmouse.o \
-	$(SRC)input/suborkb.o $(SRC)input/toprider.o $(SRC)input/zapper.o
+	$(SRC)input/suborkb.o $(SRC)input/toprider.o $(SRC)input/zapper.o \
+	$(SRC)input/virtualboy.o $(SRC)input/fns.o $(SRC)input/lcdcompzapper.o
 
 MAPPERS_OBJS = 
 
@@ -260,7 +262,7 @@ opk: $(TARGET).opk
 
 $(TARGET).opk: $(TARGET)
 	@echo Creating $@...
-	@mipsel-linux-strip bin/$(TARGET)
+	@mipsel-linux-strip $(TARGET)
 	@mksquashfs $(TARGET) src/drivers/dingux-sdl/gui/*.bmp opk/fceux.png opk/default.gcw0.desktop $@ -all-root -no-xattrs -noappend -no-exports
 
 $(TARGET): $(OBJS)
