@@ -235,7 +235,7 @@ F_OPTS = -fomit-frame-pointer -fno-builtin -fno-common -fpermissive
 
 OPTIMIZE =  -O3 -mips32r2 -fomit-frame-pointer -fno-builtin   \
             -fno-common -Wno-write-strings -Wno-sign-compare -ffast-math -ftree-vectorize \
-			-funswitch-loops -fno-strict-aliasing
+			-funswitch-loops -fno-strict-aliasing -flto
 
 CC_OPTS	= $(F_OPTS) $(W_OPTS) $(OPTIMIZE)
 
@@ -254,7 +254,7 @@ LDFLAGS  += -static-libgcc -static-libstdc++
 endif
 LIBS = $(SDL_LIBS) -lz -lm
 
-TARGET = fceux
+TARGET = bin/fceux
 
 all: $(TARGET)
 
@@ -289,4 +289,4 @@ $(TARGET): $(OBJS)
 	$(CXX) $(CDEFS) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) bin/$(TARGET)
+	rm -f $(OBJS) $(TARGET)
