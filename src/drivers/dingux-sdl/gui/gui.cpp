@@ -327,6 +327,8 @@ void FCEUGUI_Run() {
 
     InitGuiVideo();
 
+	dingoo_clear_video();
+
 	load_preview();
 
 	g_dirty = 1;
