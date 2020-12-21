@@ -176,7 +176,9 @@ BOARDS_OBJS = \
 	$(SRC)boards/vrc7.o \
 	$(SRC)boards/vrc7p.o \
 	$(SRC)boards/yoko.o \
-	$(SRC)boards/fns.o
+	$(SRC)boards/fns.o \
+    $(SRC)boards/bs4xxxr.o
+
 
 INPUT_OBJS = $(SRC)input/arkanoid.o $(SRC)input/bworld.o $(SRC)input/cursor.o \
 	$(SRC)input/fkb.o $(SRC)input/ftrainer.o $(SRC)input/hypershot.o $(SRC)input/mahjong.o \
